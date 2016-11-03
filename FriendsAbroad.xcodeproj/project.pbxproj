@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6517ADCB0FD71055E9484AF9 /* Pods_FriendsAbroad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC5030AF4A63EEDEFDF63F9 /* Pods_FriendsAbroad.framework */; };
 		E76496E51DCB422300DC7265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76496E41DCB422300DC7265 /* AppDelegate.swift */; };
 		E76496E71DCB422300DC7265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76496E61DCB422300DC7265 /* ViewController.swift */; };
 		E76496EA1DCB422300DC7265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76496E81DCB422300DC7265 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EC5030AF4A63EEDEFDF63F9 /* Pods_FriendsAbroad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendsAbroad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17A2AFDE6532EB768BD7D75D /* Pods-FriendsAbroad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsAbroad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad.debug.xcconfig"; sourceTree = "<group>"; };
+		1DC38881056E5C4D839FCDD0 /* Pods-FriendsAbroad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsAbroad.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad.release.xcconfig"; sourceTree = "<group>"; };
 		E76496E11DCB422300DC7265 /* FriendsAbroad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsAbroad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76496E41DCB422300DC7265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E76496E61DCB422300DC7265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6517ADCB0FD71055E9484AF9 /* Pods_FriendsAbroad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE3AC1C8F0A442CA8F1F7E16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17A2AFDE6532EB768BD7D75D /* Pods-FriendsAbroad.debug.xcconfig */,
+				1DC38881056E5C4D839FCDD0 /* Pods-FriendsAbroad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E1ACF83918FDF5F3A7CA7722 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EC5030AF4A63EEDEFDF63F9 /* Pods_FriendsAbroad.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E76496D81DCB422300DC7265 = {
 			isa = PBXGroup;
 			children = (
 				E76496E31DCB422300DC7265 /* FriendsAbroad */,
 				E76496E21DCB422300DC7265 /* Products */,
+				BE3AC1C8F0A442CA8F1F7E16 /* Pods */,
+				E1ACF83918FDF5F3A7CA7722 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E76496F31DCB422300DC7265 /* Build configuration list for PBXNativeTarget "FriendsAbroad" */;
 			buildPhases = (
+				D259BB46C7D3834CEAFEB297 /* [CP] Check Pods Manifest.lock */,
 				E76496DD1DCB422300DC7265 /* Sources */,
 				E76496DE1DCB422300DC7265 /* Frameworks */,
 				E76496DF1DCB422300DC7265 /* Resources */,
+				B5802EA88F23EE3B64DC6BDC /* [CP] Embed Pods Frameworks */,
+				E04001212C0040DEA2F17E6B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5802EA88F23EE3B64DC6BDC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D259BB46C7D3834CEAFEB297 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E04001212C0040DEA2F17E6B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E76496DD1DCB422300DC7265 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		E76496F41DCB422300DC7265 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17A2AFDE6532EB768BD7D75D /* Pods-FriendsAbroad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 25X7RU6WJ8;
@@ -270,6 +346,7 @@
 		};
 		E76496F51DCB422300DC7265 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DC38881056E5C4D839FCDD0 /* Pods-FriendsAbroad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 25X7RU6WJ8;
@@ -300,6 +377,7 @@
 				E76496F51DCB422300DC7265 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
