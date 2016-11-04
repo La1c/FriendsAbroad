@@ -14,7 +14,7 @@
 		E76496EA1DCB422300DC7265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76496E81DCB422300DC7265 /* Main.storyboard */; };
 		E76496EC1DCB422300DC7265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76496EB1DCB422300DC7265 /* Assets.xcassets */; };
 		E76496EF1DCB422300DC7265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76496ED1DCB422300DC7265 /* LaunchScreen.storyboard */; };
-		E7EDF5601DCC9F2B00950850 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDF55F1DCC9F2B00950850 /* AuthorizationViewController.swift */; };
+		E7CC98AC1DCCC36700BDC005 /* FriendObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC98AB1DCCC36700BDC005 /* FriendObject.swift */; };
 		E7F5FA401DCBD093006CE0CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */; };
 		E7F5FA421DCBD0A7006CE0CD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5FA411DCBD0A7006CE0CD /* ListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		E76496EB1DCB422300DC7265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E76496EE1DCB422300DC7265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76496F01DCB422300DC7265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7EDF55F1DCC9F2B00950850 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		E7CC98AB1DCCC36700BDC005 /* FriendObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendObject.swift; sourceTree = "<group>"; };
 		E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E7F5FA411DCBD0A7006CE0CD /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 				E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */,
 				E7F5FA411DCBD0A7006CE0CD /* ListViewController.swift */,
 				E71BF6121DCBEA6700D53101 /* VKDataManager.swift */,
-				E7EDF55F1DCC9F2B00950850 /* AuthorizationViewController.swift */,
+				E7CC98AB1DCCC36700BDC005 /* FriendObject.swift */,
 			);
 			path = FriendsAbroad;
 			sourceTree = "<group>";
@@ -224,12 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7EDF5601DCC9F2B00950850 /* AuthorizationViewController.swift in Sources */,
 				E76496E71DCB422300DC7265 /* MasterViewController.swift in Sources */,
 				E71BF6131DCBEA6700D53101 /* VKDataManager.swift in Sources */,
 				E7F5FA401DCBD093006CE0CD /* MapViewController.swift in Sources */,
 				E7F5FA421DCBD0A7006CE0CD /* ListViewController.swift in Sources */,
 				E76496E51DCB422300DC7265 /* AppDelegate.swift in Sources */,
+				E7CC98AC1DCCC36700BDC005 /* FriendObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

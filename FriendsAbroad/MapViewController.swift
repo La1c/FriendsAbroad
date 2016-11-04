@@ -9,6 +9,8 @@
 import UIKit
 
 class MapViewController: UIViewController {
+    
+    var friendsList = [FriendObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

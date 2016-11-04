@@ -11,8 +11,7 @@ import UIKit
 class MasterViewController: UIViewController {
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    let vkManager = VKDataManger()
-    
+    let vkManager = VKDataManager.sharedInstance
     
     
     lazy var mapViewController: MapViewController = {
@@ -40,6 +39,11 @@ class MasterViewController: UIViewController {
     private func updateView(){
         mapViewController.view.isHidden = !(segmentControl.selectedSegmentIndex == 0)
         listViewController.view.isHidden = (segmentControl.selectedSegmentIndex == 0)
+        
+        if !listViewController.view.isHidden{
+            listViewController.reloadUI()
+        }
+        
     }
     
     @IBAction func selectionDidChanged(_ sender: UISegmentedControl) {
@@ -49,11 +53,7 @@ class MasterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if vkManager.checkState() == .authorized{
-            vkManager.getFriendsList()
-        }
-        else{
+        if vkManager.checkState() != .authorized{
             vkManager.login()
         }
         
