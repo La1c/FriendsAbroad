@@ -8,24 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		6517ADCB0FD71055E9484AF9 /* Pods_FriendsAbroad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC5030AF4A63EEDEFDF63F9 /* Pods_FriendsAbroad.framework */; };
+		E71BF6131DCBEA6700D53101 /* VKDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71BF6121DCBEA6700D53101 /* VKDataManager.swift */; };
 		E76496E51DCB422300DC7265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76496E41DCB422300DC7265 /* AppDelegate.swift */; };
-		E76496E71DCB422300DC7265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76496E61DCB422300DC7265 /* ViewController.swift */; };
+		E76496E71DCB422300DC7265 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76496E61DCB422300DC7265 /* MasterViewController.swift */; };
 		E76496EA1DCB422300DC7265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76496E81DCB422300DC7265 /* Main.storyboard */; };
 		E76496EC1DCB422300DC7265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76496EB1DCB422300DC7265 /* Assets.xcassets */; };
 		E76496EF1DCB422300DC7265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76496ED1DCB422300DC7265 /* LaunchScreen.storyboard */; };
+		E7EDF5601DCC9F2B00950850 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDF55F1DCC9F2B00950850 /* AuthorizationViewController.swift */; };
+		E7F5FA401DCBD093006CE0CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */; };
+		E7F5FA421DCBD0A7006CE0CD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5FA411DCBD0A7006CE0CD /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0EC5030AF4A63EEDEFDF63F9 /* Pods_FriendsAbroad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendsAbroad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17A2AFDE6532EB768BD7D75D /* Pods-FriendsAbroad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsAbroad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad.debug.xcconfig"; sourceTree = "<group>"; };
 		1DC38881056E5C4D839FCDD0 /* Pods-FriendsAbroad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsAbroad.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad.release.xcconfig"; sourceTree = "<group>"; };
+		E71BF6121DCBEA6700D53101 /* VKDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDataManager.swift; sourceTree = "<group>"; };
 		E76496E11DCB422300DC7265 /* FriendsAbroad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsAbroad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76496E41DCB422300DC7265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E76496E61DCB422300DC7265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E76496E61DCB422300DC7265 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		E76496E91DCB422300DC7265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E76496EB1DCB422300DC7265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E76496EE1DCB422300DC7265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76496F01DCB422300DC7265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7EDF55F1DCC9F2B00950850 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E7F5FA411DCBD0A7006CE0CD /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +87,15 @@
 			isa = PBXGroup;
 			children = (
 				E76496E41DCB422300DC7265 /* AppDelegate.swift */,
-				E76496E61DCB422300DC7265 /* ViewController.swift */,
+				E76496E61DCB422300DC7265 /* MasterViewController.swift */,
 				E76496E81DCB422300DC7265 /* Main.storyboard */,
 				E76496EB1DCB422300DC7265 /* Assets.xcassets */,
 				E76496ED1DCB422300DC7265 /* LaunchScreen.storyboard */,
 				E76496F01DCB422300DC7265 /* Info.plist */,
+				E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */,
+				E7F5FA411DCBD0A7006CE0CD /* ListViewController.swift */,
+				E71BF6121DCBEA6700D53101 /* VKDataManager.swift */,
+				E7EDF55F1DCC9F2B00950850 /* AuthorizationViewController.swift */,
 			);
 			path = FriendsAbroad;
 			sourceTree = "<group>";
@@ -212,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E76496E71DCB422300DC7265 /* ViewController.swift in Sources */,
+				E7EDF5601DCC9F2B00950850 /* AuthorizationViewController.swift in Sources */,
+				E76496E71DCB422300DC7265 /* MasterViewController.swift in Sources */,
+				E71BF6131DCBEA6700D53101 /* VKDataManager.swift in Sources */,
+				E7F5FA401DCBD093006CE0CD /* MapViewController.swift in Sources */,
+				E7F5FA421DCBD0A7006CE0CD /* ListViewController.swift in Sources */,
 				E76496E51DCB422300DC7265 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +354,7 @@
 				DEVELOPMENT_TEAM = 25X7RU6WJ8;
 				INFOPLIST_FILE = FriendsAbroad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vladimir.ageev.FriendsAbroad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vladimirageev.FriendsAbroad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -352,7 +368,7 @@
 				DEVELOPMENT_TEAM = 25X7RU6WJ8;
 				INFOPLIST_FILE = FriendsAbroad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vladimir.ageev.FriendsAbroad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vladimirageev.FriendsAbroad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
