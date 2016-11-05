@@ -39,10 +39,6 @@ class ListViewController: UITableViewController {
         return friendsList.count
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        reloadUI()
-    }
-    
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Person", for: indexPath)
@@ -55,7 +51,6 @@ class ListViewController: UITableViewController {
         if let label = cell.viewWithTag(10000) as? UILabel{
             label.text = friendsList[atIndexPath.row].firstName + " " + friendsList[atIndexPath.row].lastName
         }
-        
     }
 }
 
@@ -70,5 +65,11 @@ extension ListViewController: VKDataManagerDelegate{
 extension ListViewController{
     func reloadUI(){
         self.tableView.reloadData()
+    }
+}
+
+extension ListViewController{
+    func loadImage(url: String, completion: (() -> UIImage?)){
+        
     }
 }

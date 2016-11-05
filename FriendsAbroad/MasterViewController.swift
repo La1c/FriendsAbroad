@@ -39,11 +39,6 @@ class MasterViewController: UIViewController {
     private func updateView(){
         mapViewController.view.isHidden = !(segmentControl.selectedSegmentIndex == 0)
         listViewController.view.isHidden = (segmentControl.selectedSegmentIndex == 0)
-        
-        if !listViewController.view.isHidden{
-            listViewController.reloadUI()
-        }
-        
     }
     
     @IBAction func selectionDidChanged(_ sender: UISegmentedControl) {
@@ -67,7 +62,5 @@ class MasterViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
