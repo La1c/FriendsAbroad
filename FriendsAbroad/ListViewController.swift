@@ -33,7 +33,6 @@ class ListViewController: UITableViewController {
     }
     
     
-    
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
         return friendsList.count
@@ -72,8 +71,18 @@ extension ListViewController{
     }
 }
 
+// MARK: - Prepare for segue
 extension ListViewController{
-    func loadImage(url: String, completion: (() -> UIImage?)){
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserDetails"{
+            let vc = segue.destination as! UserDetailsViewController
+            if let cell = sender as? UITableViewCell,
+                let index = tableView.indexPath(for: cell),
+                let imageView = cell.viewWithTag(100) as? UIImageView{
+                
+                vc.user = friendsList[index.row]
+                vc.userImage = imageView.image
+            }
+        }
     }
 }

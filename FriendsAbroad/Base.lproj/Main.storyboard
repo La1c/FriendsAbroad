@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -86,11 +87,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Person" id="rky-WD-mtG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Person" id="rky-WD-mtG">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rky-WD-mtG" id="HaD-u1-kXs">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irT-gI-0gL">
@@ -115,6 +116,9 @@
                                         <constraint firstItem="WrQ-bU-Cpl" firstAttribute="centerY" secondItem="HaD-u1-kXs" secondAttribute="centerY" id="o7B-dE-ayG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tlW-RW-THK" kind="show" identifier="UserDetails" id="7l7-du-7OX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -128,6 +132,45 @@
             </objects>
             <point key="canvasLocation" x="2943.75" y="-320.07042253521126"/>
         </scene>
+        <!--User Details View Controller-->
+        <scene sceneID="clz-xM-jzW">
+            <objects>
+                <viewController id="tlW-RW-THK" customClass="UserDetailsViewController" customModule="FriendsAbroad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bCj-p4-zyf"/>
+                        <viewControllerLayoutGuide type="bottom" id="A4t-27-aNv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lmv-v6-rGu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fUm-AW-pdh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="142"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JO4-Ky-4bw">
+                                <rect key="frame" x="141.5" y="538" width="37" height="30"/>
+                                <state key="normal" title="Chat!"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fUm-AW-pdh" firstAttribute="height" secondItem="Lmv-v6-rGu" secondAttribute="height" multiplier="1:4" id="27w-As-TB7"/>
+                            <constraint firstAttribute="trailing" secondItem="fUm-AW-pdh" secondAttribute="trailing" id="Mah-4v-2Q9"/>
+                            <constraint firstItem="JO4-Ky-4bw" firstAttribute="centerX" secondItem="Lmv-v6-rGu" secondAttribute="centerX" id="MbW-ho-I5I"/>
+                            <constraint firstItem="A4t-27-aNv" firstAttribute="top" secondItem="JO4-Ky-4bw" secondAttribute="bottom" id="O5P-1r-8aP"/>
+                            <constraint firstItem="fUm-AW-pdh" firstAttribute="top" secondItem="Lmv-v6-rGu" secondAttribute="top" id="eUx-Zc-uCV"/>
+                            <constraint firstItem="fUm-AW-pdh" firstAttribute="leading" secondItem="Lmv-v6-rGu" secondAttribute="leading" id="xDG-CJ-ieS"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="userImageView" destination="fUm-AW-pdh" id="rQ5-aZ-jq1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9DR-lq-6Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3770.625" y="-320.07042253521126"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YQf-HP-RAa">
             <objects>
@@ -135,11 +178,15 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LRV-yG-i5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="LRV-yG-i5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.27058823529411763" green="0.40000000000000002" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.27058823529999998" green="0.40000000000000002" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="A35-az-bHK">
