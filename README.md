@@ -14,3 +14,7 @@ To-Do:
 * MapKit
 * Loading animations and/or screens
 * Implement in app messenger
+
+Screenshots:
+
+<img src="https://github.com/La1c/FriendsAbroad/blob/master/screenshot1.png?raw=true" width="320">
