@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -90,19 +90,29 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rky-WD-mtG" id="HaD-u1-kXs">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irT-gI-0gL">
-                                            <rect key="frame" x="8" y="11.5" width="42" height="20.5"/>
+                                            <rect key="frame" x="52" y="12" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WrQ-bU-Cpl">
+                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="WrQ-bU-Cpl" secondAttribute="height" multiplier="1:1" id="dIJ-ui-f21"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="WrQ-bU-Cpl" firstAttribute="top" secondItem="HaD-u1-kXs" secondAttribute="top" id="2cl-SM-QIB"/>
+                                        <constraint firstAttribute="bottom" secondItem="WrQ-bU-Cpl" secondAttribute="bottom" id="9MC-DF-kF0"/>
+                                        <constraint firstItem="WrQ-bU-Cpl" firstAttribute="leading" secondItem="HaD-u1-kXs" secondAttribute="leading" id="Rss-N2-Gdi"/>
                                         <constraint firstItem="irT-gI-0gL" firstAttribute="centerY" secondItem="HaD-u1-kXs" secondAttribute="centerY" id="fUG-2I-23Q"/>
-                                        <constraint firstItem="irT-gI-0gL" firstAttribute="leading" secondItem="HaD-u1-kXs" secondAttribute="leadingMargin" id="shT-ii-6xo"/>
+                                        <constraint firstItem="irT-gI-0gL" firstAttribute="leading" secondItem="WrQ-bU-Cpl" secondAttribute="trailing" constant="8" id="j1o-Hd-yIJ"/>
+                                        <constraint firstItem="WrQ-bU-Cpl" firstAttribute="centerY" secondItem="HaD-u1-kXs" secondAttribute="centerY" id="o7B-dE-ayG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>

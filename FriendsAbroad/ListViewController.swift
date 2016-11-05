@@ -51,6 +51,10 @@ class ListViewController: UITableViewController {
         if let label = cell.viewWithTag(10000) as? UILabel{
             label.text = friendsList[atIndexPath.row].firstName + " " + friendsList[atIndexPath.row].lastName
         }
+        
+        if let imageView = cell.viewWithTag(100) as? UIImageView{
+            imageView.imageFromUrl(urlString: friendsList[atIndexPath.row].pictureURL)
+        }
     }
 }
 
