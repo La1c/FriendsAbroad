@@ -43,6 +43,11 @@ extension MapViewController: MKMapViewDelegate{
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton.init(type: .detailDisclosure) as UIView
+                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                imageView.image = #imageLiteral(resourceName: "camera_a")
+                imageView.contentMode = UIViewContentMode.scaleAspectFill
+                imageView.imageFromUrl(urlString: annotation.photoURL)
+                view.leftCalloutAccessoryView = imageView as UIView
             }
             
             return view
