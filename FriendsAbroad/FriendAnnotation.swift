@@ -11,13 +11,13 @@ import MapKit
 
 class FriendAnnotation: NSObject, MKAnnotation {
     
-    let name: String
+    let title: String?
     let photoURL: String
     let coordinate: CLLocationCoordinate2D
     var subtitle: String? = nil
     
-    init(name: String, location: CLLocationCoordinate2D , photoURL: String) {
-        self.name = name
+    init(name: String?, location: CLLocationCoordinate2D , photoURL: String) {
+        self.title = name
         coordinate = location
         self.photoURL = photoURL
         super.init()
