@@ -46,6 +46,7 @@ extension MapViewController: MKMapViewDelegate{
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton.init(type: .detailDisclosure) as UIView
+                view.rightCalloutAccessoryView?.tag = 105
                 let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 imageView.image = #imageLiteral(resourceName: "camera_a")
                 imageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -54,10 +55,16 @@ extension MapViewController: MKMapViewDelegate{
                 imageView.layer.cornerRadius = 20
                 view.leftCalloutAccessoryView = imageView as UIView
             }
-            
             return view
         }
         return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control.tag == 105{
+            performSegue(withIdentifier: "UserDetails", sender: view)
+        }
+        
     }
 }
 
@@ -87,7 +94,8 @@ extension MapViewController{
             
             let newAnnotationsAtCoordinate = annotationsByDistributingAnnotationsContestingACoordinate(annotations: annotationsAtCoordinate, constructNewAnnotationWithClosure: { (oldAnnotation: MKAnnotation, newCoordinates: CLLocationCoordinate2D) in
                 if let annotation = oldAnnotation as? FriendAnnotation{
-                    let newAnnotation = FriendAnnotation(name: annotation.title,
+                    let newAnnotation = FriendAnnotation(userID: annotation.userID,
+                                                         name: annotation.title,
                                                          location: newCoordinates,
                                                          photoURL: annotation.photoURL)
                     return newAnnotation
@@ -159,7 +167,8 @@ extension MapViewController: VKDataManagerDelegate{
 
 extension MapViewController: FriendObjectDelegate{
     func friendRecivedLocation(friend: FriendObject) {
-        let annotation = FriendAnnotation(name: friend.firstName + " " + friend.lastName,
+        let annotation = FriendAnnotation(userID: friend.uid,
+                                          name: friend.firstName + " " + friend.lastName,
                                           location: friend.cityLocation!,
                                           photoURL: friend.pictureURL)
         mapView.addAnnotation(annotation)
@@ -183,6 +192,27 @@ extension CLLocationCoordinate2D: Hashable {
     
     static public func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
+
+
+//MARK: - prepare for segue
+extension MapViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserDetails"{
+            if let annotationView = sender as? MKAnnotationView{
+                let userID = (annotationView.annotation as! FriendAnnotation).userID
+                let friendIndex = friendsList.index(where: {$0.uid == userID})
+                let photo = (annotationView.leftCalloutAccessoryView as! UIImageView).image
+                
+                
+                let vc = segue.destination as! UserDetailsViewController
+                vc.user = friendsList[friendIndex!]
+                vc.userImage = photo
+                
+            }
+        }
+        
     }
 }
 

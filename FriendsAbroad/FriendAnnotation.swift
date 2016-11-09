@@ -15,11 +15,13 @@ class FriendAnnotation: NSObject, MKAnnotation {
     let photoURL: String
     let coordinate: CLLocationCoordinate2D
     var subtitle: String? = nil
+    let userID: Double
     
-    init(name: String?, location: CLLocationCoordinate2D , photoURL: String) {
+    init(userID: Double, name: String?, location: CLLocationCoordinate2D , photoURL: String) {
         self.title = name
-        coordinate = location
+        self.coordinate = location
         self.photoURL = photoURL
+        self.userID = userID
         super.init()
     }
     
