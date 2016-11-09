@@ -17,7 +17,7 @@ protocol VKDataManagerDelegate: class {
 class VKDataManager: VKDelegate {
     
     var friendsList:[FriendObject]
-    weak var delegate: VKDataManagerDelegate?
+    var delegates = [VKDataManagerDelegate?]() //VERY bad design! Memory leaks are waiting for you.
     
     static let sharedInstance: VKDataManager = {
         let instance = VKDataManager()
@@ -37,7 +37,9 @@ class VKDataManager: VKDelegate {
     func vkDidAuthorizeWith(parameters: Dictionary<String, String>) {
         getFriendsList(completion: {
             self.friendsList = $0
-            self.delegate?.managerDidLoadListOfFriends()
+            for delegate in self.delegates{
+                delegate?.managerDidLoadListOfFriends()
+            }
         })
         //Called when the user is log in.
         //Here you can start to send requests to the API.

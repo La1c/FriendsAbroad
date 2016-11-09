@@ -18,7 +18,7 @@ class ListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataManager.delegate = self
+        dataManager.delegates.append(self)
 
         // Do any additional setup after loading the view.
     }

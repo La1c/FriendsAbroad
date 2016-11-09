@@ -60,23 +60,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jf5-Uu-VSB">
-                                <rect key="frame" x="143.5" y="274" width="33.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7ls-X4-TaQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XDX-dd-IT5" id="KVl-9a-vLQ"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jf5-Uu-VSB" firstAttribute="centerX" secondItem="vH0-T4-gTD" secondAttribute="centerX" id="jYQ-eX-6Q7"/>
-                            <constraint firstItem="jf5-Uu-VSB" firstAttribute="centerY" secondItem="vH0-T4-gTD" secondAttribute="centerY" id="pJ4-R7-gm6"/>
+                            <constraint firstAttribute="trailing" secondItem="7ls-X4-TaQ" secondAttribute="trailing" id="HRy-hT-FZr"/>
+                            <constraint firstItem="K3q-oK-vSU" firstAttribute="top" secondItem="7ls-X4-TaQ" secondAttribute="bottom" id="KyY-hV-VcY"/>
+                            <constraint firstItem="7ls-X4-TaQ" firstAttribute="leading" secondItem="vH0-T4-gTD" secondAttribute="leading" id="M8n-YS-yur"/>
+                            <constraint firstItem="7ls-X4-TaQ" firstAttribute="top" secondItem="vH0-T4-gTD" secondAttribute="top" id="hdd-hJ-cEd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="7ls-X4-TaQ" id="wRz-4S-qAP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0c-R3-KiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2179" y="440"/>
+            <point key="canvasLocation" x="2178.75" y="439.43661971830988"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="F7s-WL-idj">
@@ -91,7 +96,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rky-WD-mtG" id="HaD-u1-kXs">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irT-gI-0gL">
@@ -178,7 +183,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="LRV-yG-i5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="LRV-yG-i5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.27058823529411763" green="0.40000000000000002" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
