@@ -15,6 +15,9 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var friendsList = [FriendObject]()
     let dataManager = VKDataManager.sharedInstance
+    var coordinateToAnnotations = [CLLocationCoordinate2D: [MKAnnotation]]()
+    var numberOfCitiesSet = 0
+    var numberOfAnnotations = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +50,8 @@ extension MapViewController: MKMapViewDelegate{
                 imageView.image = #imageLiteral(resourceName: "camera_a")
                 imageView.contentMode = UIViewContentMode.scaleAspectFill
                 imageView.imageFromUrl(urlString: annotation.photoURL)
+                imageView.layer.masksToBounds = true
+                imageView.layer.cornerRadius = 20
                 view.leftCalloutAccessoryView = imageView as UIView
             }
             
@@ -57,14 +62,100 @@ extension MapViewController: MKMapViewDelegate{
 }
 
 
+//MARK: - Dealing with pins with same coordinates
+extension MapViewController{
+    
+    private static let radiusOfEarth = Double(6378100)
+    
+    
+    func annotationsByDistributingAnnotationsContestingACoordinate(annotations: [MKAnnotation], constructNewAnnotationWithClosure ctor: ((_ oldAnnotation:MKAnnotation, _ newCoordinate:CLLocationCoordinate2D) -> (MKAnnotation))) -> [MKAnnotation] {
+        var newAnnotations = [MKAnnotation]()
+        let contestedCoordinates = annotations.map{ $0.coordinate }
+        let newCoordinates = coordinatesByDistributingCoordinates(coordinates: contestedCoordinates)
+        for (i, annotation) in annotations.enumerated() {
+            let newCoordinate = newCoordinates[i]
+            let newAnnotation = ctor(annotation, newCoordinate)
+            newAnnotations.append(newAnnotation)
+        }
+        return newAnnotations
+    }
+    
+    func configureAnnotationsAtTheSameLocations(){
+        var newAnnotations = [MKAnnotation]()
+        
+        for (_, annotationsAtCoordinate) in coordinateToAnnotations {
+            
+            let newAnnotationsAtCoordinate = annotationsByDistributingAnnotationsContestingACoordinate(annotations: annotationsAtCoordinate, constructNewAnnotationWithClosure: { (oldAnnotation: MKAnnotation, newCoordinates: CLLocationCoordinate2D) in
+                if let annotation = oldAnnotation as? FriendAnnotation{
+                    let newAnnotation = FriendAnnotation(name: annotation.title,
+                                                         location: newCoordinates,
+                                                         photoURL: annotation.photoURL)
+                    return newAnnotation
+                }
+                return oldAnnotation
+            })
+            
+            newAnnotations.append(contentsOf: newAnnotationsAtCoordinate)
+        }
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.addAnnotations(newAnnotations)
+    }
+    
+
+    
+    func coordinatesByDistributingCoordinates(coordinates: [CLLocationCoordinate2D]) -> [CLLocationCoordinate2D] {
+        
+        if coordinates.count == 1 {
+            return coordinates
+        }
+        
+        var result = [CLLocationCoordinate2D]()
+        
+        let distanceFromContestedLocation: Double = 6.0 * Double(coordinates.count) / 2.0
+        let radiansBetweenAnnotations = 2*(M_PI * 2) / Double(coordinates.count)
+        
+        for (i, coordinate) in coordinates.enumerated() {
+            
+            let bearing = radiansBetweenAnnotations * Double(i)
+            let newCoordinate = calculateCoordinateFromCoordinate(coordinate: coordinate, onBearingInRadians: bearing, atDistanceInMetres: distanceFromContestedLocation)
+            
+            result.append(newCoordinate)
+        }
+        
+        return result
+    }
+    
+    func calculateCoordinateFromCoordinate(coordinate: CLLocationCoordinate2D, onBearingInRadians bearing: Double, atDistanceInMetres distance: Double) -> CLLocationCoordinate2D {
+        
+        let coordinateLatitudeInRadians = coordinate.latitude * M_PI / 180;
+        let coordinateLongitudeInRadians = coordinate.longitude * M_PI / 180;
+        
+        let distanceComparedToEarth = distance / MapViewController.radiusOfEarth;
+        
+        let resultLatitudeInRadians = asin(sin(coordinateLatitudeInRadians) * cos(distanceComparedToEarth) + cos(coordinateLatitudeInRadians) * sin(distanceComparedToEarth) * cos(bearing));
+        let resultLongitudeInRadians = coordinateLongitudeInRadians + atan2(sin(bearing) * sin(distanceComparedToEarth) * cos(coordinateLatitudeInRadians), cos(distanceComparedToEarth) - sin(coordinateLatitudeInRadians) * sin(resultLatitudeInRadians));
+        
+        let latitude = resultLatitudeInRadians * 180 / M_PI;
+        let longitude = resultLongitudeInRadians * 180 / M_PI;
+        
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+
+}
+
+
 extension MapViewController: VKDataManagerDelegate{
     func managerDidLoadListOfFriends() {
         self.friendsList = dataManager.friendsList
         for friend in self.friendsList{
             friend.delegate = self
+            if friend.cityName == ""{
+                numberOfCitiesSet += 1
+            }
         }
     }
 }
+
 
 extension MapViewController: FriendObjectDelegate{
     func friendRecivedLocation(friend: FriendObject) {
@@ -72,6 +163,26 @@ extension MapViewController: FriendObjectDelegate{
                                           location: friend.cityLocation!,
                                           photoURL: friend.pictureURL)
         mapView.addAnnotation(annotation)
+        if coordinateToAnnotations[friend.cityLocation!] == nil{
+            coordinateToAnnotations[friend.cityLocation!] = [MKAnnotation]()
+        }
+        coordinateToAnnotations[friend.cityLocation!]?.append(annotation)
+        numberOfAnnotations += 1
+        
+        // I'm very sorry for this part
+        configureAnnotationsAtTheSameLocations()
+    }
+}
+
+extension CLLocationCoordinate2D: Hashable {
+    public var hashValue: Int {
+        get {
+            return (latitude.hashValue&*397) &+ longitude.hashValue;
+        }
+    }
+    
+    static public func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
 

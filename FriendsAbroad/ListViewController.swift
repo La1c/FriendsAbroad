@@ -53,6 +53,8 @@ class ListViewController: UITableViewController {
         
         if let imageView = cell.viewWithTag(100) as? UIImageView{
             imageView.imageFromUrl(urlString: friendsList[atIndexPath.row].pictureURL)
+            imageView.layer.masksToBounds = true
+            imageView.layer.cornerRadius = imageView.frame.height / 2
         }
     }
 }
@@ -82,6 +84,7 @@ extension ListViewController{
                 
                 vc.user = friendsList[index.row]
                 vc.userImage = imageView.image
+                
             }
         }
     }

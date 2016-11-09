@@ -96,31 +96,31 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rky-WD-mtG" id="HaD-u1-kXs">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irT-gI-0gL">
-                                            <rect key="frame" x="52" y="12" width="42" height="20.5"/>
+                                            <rect key="frame" x="43" y="12" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WrQ-bU-Cpl">
-                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <rect key="frame" x="0.0" y="4.5" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="WrQ-bU-Cpl" secondAttribute="height" multiplier="1:1" id="dIJ-ui-f21"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="WrQ-bU-Cpl" firstAttribute="top" secondItem="HaD-u1-kXs" secondAttribute="top" id="2cl-SM-QIB"/>
-                                        <constraint firstAttribute="bottom" secondItem="WrQ-bU-Cpl" secondAttribute="bottom" id="9MC-DF-kF0"/>
                                         <constraint firstItem="WrQ-bU-Cpl" firstAttribute="leading" secondItem="HaD-u1-kXs" secondAttribute="leading" id="Rss-N2-Gdi"/>
+                                        <constraint firstItem="WrQ-bU-Cpl" firstAttribute="height" secondItem="HaD-u1-kXs" secondAttribute="height" multiplier="8:10" id="cjp-vD-3hV"/>
                                         <constraint firstItem="irT-gI-0gL" firstAttribute="centerY" secondItem="HaD-u1-kXs" secondAttribute="centerY" id="fUG-2I-23Q"/>
                                         <constraint firstItem="irT-gI-0gL" firstAttribute="leading" secondItem="WrQ-bU-Cpl" secondAttribute="trailing" constant="8" id="j1o-Hd-yIJ"/>
                                         <constraint firstItem="WrQ-bU-Cpl" firstAttribute="centerY" secondItem="HaD-u1-kXs" secondAttribute="centerY" id="o7B-dE-ayG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="44" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <segue destination="tlW-RW-THK" kind="show" identifier="UserDetails" id="7l7-du-7OX"/>
                                 </connections>
