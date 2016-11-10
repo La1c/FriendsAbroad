@@ -32,7 +32,7 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? FriendAnnotation{
+        if let annotation = annotation as? FriendObject{
             let identifier = "friendPin"
             var view: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView{
@@ -48,7 +48,7 @@ extension MapViewController: MKMapViewDelegate{
                 let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 imageView.image = #imageLiteral(resourceName: "camera_a")
                 imageView.contentMode = UIViewContentMode.scaleAspectFill
-                imageView.imageFromUrl(urlString: annotation.photoURL)
+                imageView.imageFromUrl(urlString: annotation.pictureURL)
                 imageView.layer.masksToBounds = true
                 imageView.layer.cornerRadius = 20
                 view.leftCalloutAccessoryView = imageView as UIView
@@ -91,12 +91,9 @@ extension MapViewController{
         for (_, annotationsAtCoordinate) in coordinateToAnnotations {
             
             let newAnnotationsAtCoordinate = annotationsByDistributingAnnotationsContestingACoordinate(annotations: annotationsAtCoordinate, constructNewAnnotationWithClosure: { (oldAnnotation: MKAnnotation, newCoordinates: CLLocationCoordinate2D) in
-                if let annotation = oldAnnotation as? FriendAnnotation{
-                    let newAnnotation = FriendAnnotation(userID: annotation.userID,
-                                                         name: annotation.title,
-                                                         location: newCoordinates,
-                                                         photoURL: annotation.photoURL)
-                    return newAnnotation
+                if let annotation = oldAnnotation as? FriendObject{
+                    annotation.coordinate = newCoordinates
+                    return annotation
                 }
                 return oldAnnotation
             })
@@ -162,15 +159,11 @@ extension MapViewController: VKDataManagerDelegate{
 
 extension MapViewController: FriendObjectDelegate{
     func friendRecivedLocation(friend: FriendObject) {
-        let annotation = FriendAnnotation(userID: friend.uid,
-                                          name: friend.firstName + " " + friend.lastName,
-                                          location: friend.cityLocation!,
-                                          photoURL: friend.pictureURL)
-        mapView.addAnnotation(annotation)
-        if coordinateToAnnotations[friend.cityLocation!] == nil{
-            coordinateToAnnotations[friend.cityLocation!] = [MKAnnotation]()
+  //      mapView.addAnnotation(friend)
+        if coordinateToAnnotations[friend.coordinate] == nil{
+            coordinateToAnnotations[friend.coordinate] = [MKAnnotation]()
         }
-        coordinateToAnnotations[friend.cityLocation!]?.append(annotation)
+        coordinateToAnnotations[friend.coordinate]?.append(friend)
         
         // I'm very sorry for this part
         configureAnnotationsAtTheSameLocations()
@@ -195,13 +188,12 @@ extension MapViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserDetails"{
             if let annotationView = sender as? MKAnnotationView{
-                let userID = (annotationView.annotation as! FriendAnnotation).userID
-                let friendIndex = friendsList.index(where: {$0.uid == userID})
-                let photo = (annotationView.leftCalloutAccessoryView as! UIImageView).image
-                
-                let vc = segue.destination as! UserDetailsViewController
-                vc.user = friendsList[friendIndex!]
-                vc.userImage = photo
+                if let friend = annotationView.annotation as? FriendObject{
+                    let photo = (annotationView.leftCalloutAccessoryView as! UIImageView).image
+                    let vc = segue.destination as! UserDetailsViewController
+                    vc.user = friend
+                    vc.userImage = photo
+                }
             }
         }
         

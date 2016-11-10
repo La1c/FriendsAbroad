@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6517ADCB0FD71055E9484AF9 /* Pods_FriendsAbroad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC5030AF4A63EEDEFDF63F9 /* Pods_FriendsAbroad.framework */; };
 		E71BF6131DCBEA6700D53101 /* VKDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71BF6121DCBEA6700D53101 /* VKDataManager.swift */; };
-		E720FE041DD2174500B26083 /* FriendAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E720FE031DD2174500B26083 /* FriendAnnotation.swift */; };
 		E76496E51DCB422300DC7265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76496E41DCB422300DC7265 /* AppDelegate.swift */; };
 		E76496E71DCB422300DC7265 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76496E61DCB422300DC7265 /* MasterViewController.swift */; };
 		E76496EA1DCB422300DC7265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76496E81DCB422300DC7265 /* Main.storyboard */; };
@@ -28,7 +27,6 @@
 		17A2AFDE6532EB768BD7D75D /* Pods-FriendsAbroad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsAbroad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad.debug.xcconfig"; sourceTree = "<group>"; };
 		1DC38881056E5C4D839FCDD0 /* Pods-FriendsAbroad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsAbroad.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsAbroad/Pods-FriendsAbroad.release.xcconfig"; sourceTree = "<group>"; };
 		E71BF6121DCBEA6700D53101 /* VKDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDataManager.swift; sourceTree = "<group>"; };
-		E720FE031DD2174500B26083 /* FriendAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAnnotation.swift; sourceTree = "<group>"; };
 		E76496E11DCB422300DC7265 /* FriendsAbroad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsAbroad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76496E41DCB422300DC7265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E76496E61DCB422300DC7265 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				E7CC98AB1DCCC36700BDC005 /* FriendObject.swift */,
 				E7A355F01DCDE901001E82D7 /* downloadImageExtension.swift */,
 				E767E9E51DCDF3C6000A7016 /* UserDetailsViewController.swift */,
-				E720FE031DD2174500B26083 /* FriendAnnotation.swift */,
 				E79267441DD4BD59007540C7 /* FriendTableViewCell.swift */,
 			);
 			path = FriendsAbroad;
@@ -238,7 +235,6 @@
 			files = (
 				E76496E71DCB422300DC7265 /* MasterViewController.swift in Sources */,
 				E71BF6131DCBEA6700D53101 /* VKDataManager.swift in Sources */,
-				E720FE041DD2174500B26083 /* FriendAnnotation.swift in Sources */,
 				E7F5FA401DCBD093006CE0CD /* MapViewController.swift in Sources */,
 				E7F5FA421DCBD0A7006CE0CD /* ListViewController.swift in Sources */,
 				E76496E51DCB422300DC7265 /* AppDelegate.swift in Sources */,

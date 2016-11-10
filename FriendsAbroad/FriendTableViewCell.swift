@@ -30,5 +30,4 @@ class FriendTableViewCell: UITableViewCell {
             cellImageView.layer.masksToBounds = true
             cellImageView.layer.cornerRadius = cellImageView.frame.height / 2
     }
-
 }
