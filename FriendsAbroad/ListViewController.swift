@@ -12,7 +12,6 @@ class ListViewController: UITableViewController {
     
     var dataSource: UITableViewDataSource?
     var delegate: UITableViewDelegate?
-    @IBOutlet weak var prototypeCell: UITableViewCell!
     var friendsList = [FriendObject]()
     let dataManager = VKDataManager.sharedInstance
 
@@ -41,21 +40,10 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Person", for: indexPath)
-        configure(cell: cell, atIndexPath: indexPath)
+        if  let cell = cell as? FriendTableViewCell{
+            cell.configure(for: friendsList[indexPath.row])
+        }
         return cell
-    }
-    
-    
-    func configure(cell: UITableViewCell, atIndexPath: IndexPath){
-        if let label = cell.viewWithTag(10000) as? UILabel{
-            label.text = friendsList[atIndexPath.row].firstName + " " + friendsList[atIndexPath.row].lastName
-        }
-        
-        if let imageView = cell.viewWithTag(100) as? UIImageView{
-            imageView.imageFromUrl(urlString: friendsList[atIndexPath.row].pictureURL)
-            imageView.layer.masksToBounds = true
-            imageView.layer.cornerRadius = imageView.frame.height / 2
-        }
     }
 }
 

@@ -91,7 +91,6 @@ extension VKDataManager{
                     self.friendsList.append(newFriend)
                 }
                 completion?(self.friendsList)
-                print(response)
         },
             onError: {error in print(error)}
         )

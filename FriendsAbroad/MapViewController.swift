@@ -16,8 +16,6 @@ class MapViewController: UIViewController {
     var friendsList = [FriendObject]()
     let dataManager = VKDataManager.sharedInstance
     var coordinateToAnnotations = [CLLocationCoordinate2D: [MKAnnotation]]()
-    var numberOfCitiesSet = 0
-    var numberOfAnnotations = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,9 +155,6 @@ extension MapViewController: VKDataManagerDelegate{
         self.friendsList = dataManager.friendsList
         for friend in self.friendsList{
             friend.delegate = self
-            if friend.cityName == ""{
-                numberOfCitiesSet += 1
-            }
         }
     }
 }
@@ -176,7 +171,6 @@ extension MapViewController: FriendObjectDelegate{
             coordinateToAnnotations[friend.cityLocation!] = [MKAnnotation]()
         }
         coordinateToAnnotations[friend.cityLocation!]?.append(annotation)
-        numberOfAnnotations += 1
         
         // I'm very sorry for this part
         configureAnnotationsAtTheSameLocations()
@@ -205,11 +199,9 @@ extension MapViewController{
                 let friendIndex = friendsList.index(where: {$0.uid == userID})
                 let photo = (annotationView.leftCalloutAccessoryView as! UIImageView).image
                 
-                
                 let vc = segue.destination as! UserDetailsViewController
                 vc.user = friendsList[friendIndex!]
                 vc.userImage = photo
-                
             }
         }
         

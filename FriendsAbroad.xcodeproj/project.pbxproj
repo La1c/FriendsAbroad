@@ -16,6 +16,7 @@
 		E76496EC1DCB422300DC7265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76496EB1DCB422300DC7265 /* Assets.xcassets */; };
 		E76496EF1DCB422300DC7265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76496ED1DCB422300DC7265 /* LaunchScreen.storyboard */; };
 		E767E9E61DCDF3C6000A7016 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E767E9E51DCDF3C6000A7016 /* UserDetailsViewController.swift */; };
+		E79267451DD4BD59007540C7 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79267441DD4BD59007540C7 /* FriendTableViewCell.swift */; };
 		E7A355F11DCDE901001E82D7 /* downloadImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A355F01DCDE901001E82D7 /* downloadImageExtension.swift */; };
 		E7CC98AC1DCCC36700BDC005 /* FriendObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC98AB1DCCC36700BDC005 /* FriendObject.swift */; };
 		E7F5FA401DCBD093006CE0CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */; };
@@ -36,6 +37,7 @@
 		E76496EE1DCB422300DC7265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76496F01DCB422300DC7265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E767E9E51DCDF3C6000A7016 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		E79267441DD4BD59007540C7 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		E7A355F01DCDE901001E82D7 /* downloadImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = downloadImageExtension.swift; sourceTree = "<group>"; };
 		E7CC98AB1DCCC36700BDC005 /* FriendObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendObject.swift; sourceTree = "<group>"; };
 		E7F5FA3F1DCBD093006CE0CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				E7A355F01DCDE901001E82D7 /* downloadImageExtension.swift */,
 				E767E9E51DCDF3C6000A7016 /* UserDetailsViewController.swift */,
 				E720FE031DD2174500B26083 /* FriendAnnotation.swift */,
+				E79267441DD4BD59007540C7 /* FriendTableViewCell.swift */,
 			);
 			path = FriendsAbroad;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				E7F5FA421DCBD0A7006CE0CD /* ListViewController.swift in Sources */,
 				E76496E51DCB422300DC7265 /* AppDelegate.swift in Sources */,
 				E7CC98AC1DCCC36700BDC005 /* FriendObject.swift in Sources */,
+				E79267451DD4BD59007540C7 /* FriendTableViewCell.swift in Sources */,
 				E767E9E61DCDF3C6000A7016 /* UserDetailsViewController.swift in Sources */,
 				E7A355F11DCDE901001E82D7 /* downloadImageExtension.swift in Sources */,
 			);
