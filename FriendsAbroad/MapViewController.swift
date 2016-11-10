@@ -37,7 +37,12 @@ extension MapViewController: MKMapViewDelegate{
             var view: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView{
                 dequeuedView.annotation = annotation
+                if let imageView = dequeuedView.leftCalloutAccessoryView as? UIImageView{
+                    imageView.imageFromUrl(urlString: annotation.pictureURL)
+                }
+                
                 view = dequeuedView
+                
             }else{
                 view = MKPinAnnotationView(annotation: annotation,
                                            reuseIdentifier: identifier)
@@ -90,7 +95,8 @@ extension MapViewController{
         
         for (_, annotationsAtCoordinate) in coordinateToAnnotations {
             
-            let newAnnotationsAtCoordinate = annotationsByDistributingAnnotationsContestingACoordinate(annotations: annotationsAtCoordinate, constructNewAnnotationWithClosure: { (oldAnnotation: MKAnnotation, newCoordinates: CLLocationCoordinate2D) in
+            let newAnnotationsAtCoordinate = annotationsByDistributingAnnotationsContestingACoordinate(annotations: annotationsAtCoordinate, constructNewAnnotationWithClosure: {
+                (oldAnnotation: MKAnnotation, newCoordinates: CLLocationCoordinate2D) in
                 if let annotation = oldAnnotation as? FriendObject{
                     annotation.coordinate = newCoordinates
                     return annotation
@@ -143,7 +149,6 @@ extension MapViewController{
         
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
-
 }
 
 
@@ -159,16 +164,17 @@ extension MapViewController: VKDataManagerDelegate{
 
 extension MapViewController: FriendObjectDelegate{
     func friendRecivedLocation(friend: FriendObject) {
-  //      mapView.addAnnotation(friend)
+        
         if coordinateToAnnotations[friend.coordinate] == nil{
             coordinateToAnnotations[friend.coordinate] = [MKAnnotation]()
         }
         coordinateToAnnotations[friend.coordinate]?.append(friend)
         
-        // I'm very sorry for this part
+        // I'm very sorry for this part, it get called every time new data comes
         configureAnnotationsAtTheSameLocations()
     }
 }
+
 
 extension CLLocationCoordinate2D: Hashable {
     public var hashValue: Int {
@@ -196,7 +202,6 @@ extension MapViewController{
                 }
             }
         }
-        
     }
 }
 
